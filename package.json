@@ -1,0 +1,29 @@
+{
+  "name": "api-hopihari",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "npx nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BistonN/api-hopihari.git"
+  },
+  "author": "BistonN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BistonN/api-hopihari/issues"
+  },
+  "homepage": "https://github.com/BistonN/api-hopihari#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "http": "^0.0.1-security",
+    "mysql2": "^3.14.1",
+    "nodemon": "^3.1.10"
+  }
+}
