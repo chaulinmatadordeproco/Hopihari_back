@@ -58,11 +58,10 @@ exports.cadastrarUsuario = async (req, res) => {
 
 exports.login = async (req, res) => {
     try {
-        const resultado = await mysql.execute(
+        const usuario = await mysql.execute(
             `SELECT * FROM users WHERE email = ?`,
             [req.body.email]);
-        console.log(resultado)
-        if (resultado.length == 0) {
+        if (usuario.length == 0) {
             return res.status(401).send({ "Mensagem": "Usuario não encontrado" });
         }
 
@@ -70,7 +69,6 @@ exports.login = async (req, res) => {
         if (!match) {
             return res.status(401).send({ "Mensagem": "Senha incorreta" });
         }
-        console.log(match, req.body.password, usuario[0].password);
 
         const token = jwt.sign({
             id: usuario[0].id,
@@ -78,7 +76,7 @@ exports.login = async (req, res) => {
             last_name: usuario[0].last_name,
             email: usuario[0].email,
             birth_date: usuario[0].birth_date,
-        }, "senha do jwt");
+        }, "senhadojwt");
         return res.status(200).send({
             "Mensagem": "Usuario logado com sucesso",
             "token": token
