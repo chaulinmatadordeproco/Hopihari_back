@@ -5,4 +5,6 @@ const notificationsController = require("../controllers/notification.controller"
 
 router.get("/", login.required, notificationsController.getNotificacoes);
 
+router.put("/:idNot", notificationsController.updateNotification)
+
 module.exports = router;
