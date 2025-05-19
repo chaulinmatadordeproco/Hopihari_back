@@ -22,3 +22,15 @@ DELIMITER $$
 		VALUES (concat(total_wait_time, " minutos de espera para o brinquedo "),8,5,TRUE);
 END $$
 DELIMITER ;
+
+
+SELECT * FROM notifications WHERE id_user = 11 and status = TRUE;
+
+ INSERT INTO notifications (description, id_rides, id_user, status)
+		VALUES ("tudo culpa do bisteca, leonardo", 12, 11, TRUE);
+
+SELECT * FROM users;
+
+UPDATE notifications SET status = 0 WHERE id_user = ?;
+
+SELECT * FROM notifications;
