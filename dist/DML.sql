@@ -93,3 +93,15 @@ FROM
 INNER JOIN users ON `lines`.users_id = users.id
 INNER JOIN rides ON `lines`.rides_id = rides.id;
 
+
+INSERT INTO areas (name) VALUES ("Aribabiba");
+INSERT INTO areas (name) VALUES ("Aribabiba");
+INSERT INTO areas (name) VALUES ("Aribabiba");
+INSERT INTO areas (name) VALUES ("Aribabiba");
+INSERT INTO areas (name) VALUES ("Aribabiba");
+
+SELECT * FROM areas;
+
+SELECT * FROM rides;
+INSERT INTO rides (name, waiting_time, status, areas_id)
+VALUES ("Montezum", 5, "ABERTO", (SELECT id FROM areas WHERE name = "Aribabiba"));
