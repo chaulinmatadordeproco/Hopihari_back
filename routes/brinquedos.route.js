@@ -6,7 +6,11 @@ const login  = require('../middleware/usuarios.middleware');
 router.post('/', 
     login.required, 
     login.userRequired, 
-    BrinquedoController.cadastrarBrinquedo);
+    BrinquedoController.cadastrarBrinquedo
+);
+
+router.get('/area/:areaName',login.required, BrinquedoController.getBrinquedosByArea);
+
 
 
 module.exports = router;
