@@ -7,28 +7,26 @@ exports.required = async (req, res, next) => {
 
         const token = req.headers.authorization.split(" ")[1];
         const decode = jwt.decode(token, "senhadojwt");
-
+        
         if (decode.id) {
             res.locals.idUsuario = decode.id;
             res.locals.admin = decode.admin;
             next();
         } else {
-            return res.status(401).send({ "Mensagem": "Usuario não Autentidado" });
+            return res.status(401).send({"Mensagem": "Usuario não Autenticado"});
         }
-
     } catch (error) {
-        return res.status(500).send({"error": error.message });
+        return res.status(500).send(error);
     }
-};
-
+}
 
 exports.userRequired = async (req, res, next) => {
-    try{
-        if(!res.locals.admin){
-            return res.status(405).send({"Mensagem": "Usuario não autorizado"});
+    try {
+        if (!res.locals.admin) {
+            return res.status(405).send({"Mensagem": "Usuário não Autorizado"});
         }
         next();
-    }catch(error){
+    } catch (error) {
         return res.status(500).send(error);
     }
 }
